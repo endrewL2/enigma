@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso ao Link Protegido</title>
+  <style>
+    /* Esconde o link inicialmente */
+    #protectedLink {
+      display: none;
+    }
+    /* Estilos básicos para o formulário */
+    .container {
+      max-width: 300px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Área Protegida</h2>
+    <p>Insira a senha para acessar o link:</p>
+    
+    <!-- Campo de senha e botão -->
+    <input type="password" id="passwordInput" placeholder="Digite a senha">
+    <button onclick="validatePassword()">Liberar Link</button>
+
+    <!-- Link protegido, inicialmente oculto -->
+    <div id="protectedLink">
+      <p>Link liberado! Clique <a href="https://discord.gg/V5dcwJbt" target="_blank">aqui</a> para acessar.</p>
+    </div>
+    
+    <!-- Mensagem de erro, inicialmente oculta -->
+    <p id="errorMessage" style="color: red; display: none;">Senha incorreta! Tente novamente.</p>
+  </div>
+
+  <script>
+    function validatePassword() {
+      const password = document.getElementById("passwordInput").value;
+      const correctPassword = "Veil"; // Substitua pela senha desejada
+      const link = document.getElementById("protectedLink");
+      const errorMessage = document.getElementById("errorMessage");
+      
+      // Verifica se a senha está correta
+      if (password === correctPassword) {
+        link.style.display = "block"; // Mostra o link
+        errorMessage.style.display = "none"; // Oculta a mensagem de erro
+      } else {
+        errorMessage.style.display = "block"; // Mostra a mensagem de erro
+        link.style.display = "none"; // Garante que o link permaneça oculto
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
